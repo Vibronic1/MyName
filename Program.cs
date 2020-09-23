@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+
+
 struct Person
 {
+    public enum Genders : int { Male, Female };
     public string firstName;
     public string lastName;
     public int age;
-    public Person(string _firstName, string _lastName, int _age)
+    public Genders gender;
+    public Person(string _firstName, string _lastName, int _age, Genders _gender)
     {
         firstName = _firstName;
-        lastName = _lastName; age = _age;
+        lastName = _lastName;
+        age = _age;
+        gender = _gender;
     }
     public override string ToString()
     {
-        return firstName + " " + lastName + ", age " + age;
+        return firstName + " " + lastName + " (" + gender + "), age " + age;
     }
 }
 namespace MyName
@@ -24,7 +31,7 @@ namespace MyName
     {
         static void Main(string[] args)
         {
-            Person p = new Person("Tony", "Allen", 32); Console.WriteLine(p);
+            Person p = new Person("Andrey", "Brester", 18, Person.Genders.Male); Console.WriteLine(p);
         }
     }
 }
